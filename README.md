@@ -47,8 +47,8 @@ Download the app. go inside project folder and run this maven commend.
 	http://localhost:8080/api/v1/tournaments/players/active/{tournamentId}/{playerId} 	 PUT Update loser player status to be 0 so we can't include the player in next round.
 * After we update all match results. we call next round again until we have a winner.
 
-## access H2 Data with s2 password
-http://localhost:8080/h2 
+## access H2 Data 
+http://localhost:8080/h2  password sa
 
 
 ## Unit/Integeration Test
