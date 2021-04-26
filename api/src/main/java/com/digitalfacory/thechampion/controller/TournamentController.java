@@ -37,6 +37,15 @@ public class TournamentController {
 		}
 	}
 	
+	@GetMapping("/tournaments/{tournamentId}")
+	public ResponseEntity<?> getTournament(@PathVariable Integer tournamentId) {
+		try {
+			return new ResponseEntity<>(tournamentServie.getTournament(tournamentId), HttpStatus.OK);
+		} catch (Exception e) {
+			return utils.returnError(e);
+		}
+	}
+	
 	@PostMapping("/tournaments")
 	ResponseEntity<?> createNewTournament(@RequestBody Tournament tournament) {
 		try {

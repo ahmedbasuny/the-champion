@@ -1,8 +1,11 @@
 package com.digitalfacory.thechampion.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +29,14 @@ public class TournamentService {
 	@Autowired
 	MatchService matchService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(TournamentService.class);
+	
 	public List<Tournament> getAll() {
 		return tournamentRepo.findAll();
+	}
+	
+	public Tournament getTournament(Integer tournamentId) {
+		return tournamentRepo.findById(tournamentId).get();
 	}
 
 	public Tournament addNewTournament(Tournament tournament) throws Exception {
@@ -62,10 +71,11 @@ public class TournamentService {
 		
 		Tournament tournament = tournamentRepo.getOne(tournamentId);
 		List<Integer> players = tournamentRepo.findAllActivePlayers(tournamentId);
+		logger.info("players ==> " + players.size());
 		if (players.size() < 2) {
 			System.out.println("we have a winner..." + players.get(0));
 		} else {
-			setMatches(players, tournament);
+			setMatches(new ArrayList<Integer>(players), tournament);
 		}
 		return players;
 	}
