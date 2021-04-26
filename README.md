@@ -60,5 +60,9 @@ http://localhost:8080/h2
 * [actuator env](http://localhost:8080/actuator/env)
 * [actuator health](http://localhost:8080/actuator/health)
 
+## Next Phase 
+* Implement Frontend project with angular.
+* Add some new feature with status and dates.
+* Add logs 
 
 

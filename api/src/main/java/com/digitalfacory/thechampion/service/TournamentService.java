@@ -71,9 +71,8 @@ public class TournamentService {
 		
 		Tournament tournament = tournamentRepo.getOne(tournamentId);
 		List<Integer> players = tournamentRepo.findAllActivePlayers(tournamentId);
-		logger.info("players ==> " + players.size());
 		if (players.size() < 2) {
-			System.out.println("we have a winner..." + players.get(0));
+			logger.info("we have a winner..." + players.get(0));
 		} else {
 			setMatches(new ArrayList<Integer>(players), tournament);
 		}
