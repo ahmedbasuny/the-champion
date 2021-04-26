@@ -15,6 +15,7 @@ API to manage tennis table league.
 Download the app. go inside project folder and run this maven commend.
 
 `$ mvn clean install`
+
 `$ mvn clean package spring-boot:run`
 
 ## Using the endpoints
